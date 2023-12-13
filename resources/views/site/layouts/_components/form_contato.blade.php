@@ -1,6 +1,6 @@
 {{$slot}}
 
-<form acton = {{ route('site.contato') }} method = "post">
+<form action = {{ route('site.contato') }} method = "post">
     @csrf
     <input  name="nome" value="{{ old('nome') }}" type="text" placeholder="Nome" class="{{$classe}}">
     <br>
@@ -13,7 +13,7 @@
         <option value="0">Qual o motivo do contato?</option>
 
         @foreach($motivo_contatos as $key => $motivo_contato )
-            <option value="{{$key}}" {{ old('motivo_contato') == $key ? 'selected' : ''}} >{{ $motivo_contato}}</option>
+            <option value="{{$motivo_contato->id}}" {{ old('motivo_contato') == $motivo_contato->id ? 'selected' : ''}} >{{$motivo_contato->motivo_contato}}</option>
          @endforeach
     </select>
     <br>
